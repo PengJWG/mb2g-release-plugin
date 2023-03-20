@@ -6,6 +6,8 @@
     <servers>
         <server>
             <id>packagecloud.release</id>
+            <!-- environment variable defined in CircleCi for specified project -->
+            <!-- Project Settings -> Environment Variables -->
             <password>${env.PCLOUD}</password>
         </server>
         <server>
@@ -15,6 +17,8 @@
         <server>
             <id>github</id>
             <username>PengJWG</username>
+            <!-- environment variable defined in CircleCi for specified project -->
+            <!-- Project Settings -> Environment Variables -->
             <password>${env.GIT_PWD}</password>
         </server>
     </servers>
