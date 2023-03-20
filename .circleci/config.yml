@@ -2,12 +2,12 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
-version: 2
+version: 2.1
 jobs:
     build:
         docker:
             # specify the version you desire here
-            - image: circleci/openjdk:11-browsers-legacy
+            - image: circleci/openjdk:17.0.6
 
             # Specify service dependencies here if necessary
             # CircleCI maintains a library of pre-built images
@@ -37,8 +37,9 @@ jobs:
                       - ~/.m2
                   key: v1-dependencies-{{ checksum "pom.xml" }}
 
-            - run: git config user.email "john@springframework.guru"
-            - run: git config user.name "Via CircleCI Build"
+            #- run: git config user.email "peng.li@gmx.de"
+            #- run: git config user.name "Via CircleCI Build"
             # run tests!
-            - run: mvn --batch-mode release:prepare release:perform -s .circleci/settings.xml
+            #- run: mvn --batch-mode release:prepare release:perform -s .circleci/settings.xml
+            - run: mvn integration-test
 
